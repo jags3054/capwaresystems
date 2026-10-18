@@ -9,7 +9,17 @@ const ContactSchema = new mongoose.Schema({
   submittedAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  status: {
+    type: String,
+    enum: ["New", "Contacted", "Qualified", "Converted", "Lost"],
+    default: "New",
+  },
+  notes: {
+    type: String,
+    default: "",
+  },
+
 });
 
 module.exports = mongoose.model('Contact', ContactSchema);
